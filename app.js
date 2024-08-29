@@ -51,11 +51,11 @@ const sessionOption = {
   saveUninitialized: false,
   secret: process.env.COOKIE_SECRET,
   cookie: {
-    httpOnly: false,
+    httpOnly: true,
   },
 };
 if (prod) {
-  sessionOption.cookie.secure = true;
+  sessionOption.cookie.secure = false;
   sessionOption.cookie.proxy = true;
 }
 app.use(session(sessionOption));
